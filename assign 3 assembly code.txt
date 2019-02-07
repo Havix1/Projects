@@ -1,0 +1,29 @@
+    call    read_int
+    mov     edi, eax
+
+    call    read_int
+    mov     edx, 16
+    mul     edx
+
+    cdq
+
+    mov     edx, eax
+    call    read_int
+    mov     ebx, eax
+    mov     eax, edx
+    mov     edx, 0
+    idiv    ebx
+
+    cdq
+
+    mov     ebx, edi
+    add     ebx, 95
+
+    mul     ebx
+
+    cdq
+
+    sub     eax, edi
+    add     eax, 20
+        call    print_int
+        call    print_nl

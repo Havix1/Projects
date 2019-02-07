@@ -1,0 +1,58 @@
+ 1 %include "/usr/local/share/csc314/asm_io.inc"
+ 2
+ 3
+ 4 segment .data
+ 5
+ 6
+ 7 segment .bss
+ 8
+ 9
+10 segment .text
+11     global  asm_main
+12
+13 asm_main:
+14     push    ebp
+15     mov     ebp, esp
+16     ; ********** CODE STARTS HERE **********
+17
+18     call    read_int ; A
+19     mov     ebx, eax
+20
+21     call    read_int ; B
+22     mov     edx, eax
+23
+24     call    read_int ; C
+25     mov     ecx, eax
+26
+27     mov     eax, edx
+28
+29     mov     edx, 16
+30     mul     edx
+31     ;call   print_int
+32     ;call   print_nl
+33
+34     mov     edx, 0
+35     div     ecx
+36     ;call   print_int
+37     ;call   print_nl
+38     mov     ecx, eax
+39
+40     mov     eax, ebx
+41     add     eax, 95
+42     ;call   print_int
+43     ;call   print_nl
+44
+45     mul     ecx
+46
+47     sub     eax, ebx
+48     add     eax, 20
+49
+50     call    print_int
+51     call    print_nl
+52
+53
+54     ; *********** CODE ENDS HERE ***********
+55     mov     eax, 0
+56     mov     esp, ebp
+57     pop     ebp
+58     ret
